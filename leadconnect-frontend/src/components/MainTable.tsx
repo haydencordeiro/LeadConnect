@@ -253,7 +253,7 @@ const MainTable: React.FC<MainTableProps> = ({contacts, setContacts, token, dele
                 </div>
             )}
 
-            <div className="flex-grow overflow-hidden">
+<div className="flex-grow overflow-hidden">
                 <div className="bg-cardWhite rounded-lg overflow-y-auto scrollbar-thin h-full">
                     {searchFilteredContacts.map((contact, index) => (
                         <div key={index}

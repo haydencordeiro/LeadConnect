@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult, DraggableProvided, DraggableStateSnapshot, DroppableProvided, DroppableStateSnapshot } from '@hello-pangea/dnd';
+import axios from 'axios';
 import { Contact } from '../types'; // Import the shared Contact type
 
 type ContactWithInitial = Contact & {
@@ -7,22 +8,22 @@ type ContactWithInitial = Contact & {
 };
 
 type ContactsState = {
-  dontKeepInTouch: ContactWithInitial[];
-  uncategorized: ContactWithInitial[];
-  everyWeek: ContactWithInitial[];
-  everyTwoWeeks: ContactWithInitial[];
-  everyMonth: ContactWithInitial[];
-  everyThreeMonths: ContactWithInitial[];
+  Weekly: ContactWithInitial[];
+  Biweekly: ContactWithInitial[];
+  Monthly: ContactWithInitial[];
+  Bimonthly: ContactWithInitial[];
+  Once_in_3_months: ContactWithInitial[];
+  Once_in_6_months: ContactWithInitial[];
 };
 
 const categorizeContacts = (contacts: Contact[]): ContactsState => {
   const categorizedContacts: ContactsState = {
-    dontKeepInTouch: [],
-    uncategorized: [],
-    everyWeek: [],
-    everyTwoWeeks: [],
-    everyMonth: [],
-    everyThreeMonths: [],
+    Weekly: [],
+    Biweekly: [],
+    Monthly: [],
+    Bimonthly: [],
+    Once_in_3_months: [],
+    Once_in_6_months: [],
   };
 
   contacts.forEach(contact => {
@@ -31,20 +32,26 @@ const categorizeContacts = (contacts: Contact[]): ContactsState => {
 
     switch (contact.frequency) {
       case 'Weekly':
-        categorizedContacts.everyWeek.push(categorizedContact);
+        categorizedContacts.Weekly.push(categorizedContact);
         break;
       case 'Biweekly':
-        categorizedContacts.everyTwoWeeks.push(categorizedContact);
+        categorizedContacts.Biweekly.push(categorizedContact);
         break;
       case 'Monthly':
-        categorizedContacts.everyMonth.push(categorizedContact);
+        categorizedContacts.Monthly.push(categorizedContact);
         break;
-      case 'Once in 3 months':
-        categorizedContacts.everyThreeMonths.push(categorizedContact);
+      case 'Bimonthly':
+        categorizedContacts.Bimonthly.push(categorizedContact);
         break;
-      default:
-        categorizedContacts.uncategorized.push(categorizedContact);
+      case 'Once_in_3_months':
+        categorizedContacts.Once_in_3_months.push(categorizedContact);
         break;
+      case 'Once_in_6_months':
+        categorizedContacts.Once_in_6_months.push(categorizedContact);
+        break;
+      // default:
+      //   categorizedContacts.Weekly.push(categorizedContact);
+      //   break;
     }
   });
 
@@ -64,6 +71,45 @@ const KeepInTouch: React.FC<KeepInTouchProps> = ({ contacts }) => {
     setCategorizedContacts(categorizeContacts(contacts));
   }, [contacts]);
 
+  const updateContactFrequency = async (contact: ContactWithInitial, newFrequency: string) => {
+    try {
+        // Step 1: Make a GET request to fetch the contact URL
+        const getUrl = `http://127.0.0.1:5000/api/contacts/contact_url/${contact.name}`;
+        console.log('Fetching contact URL from:', getUrl);
+        const response = await axios.get(getUrl);
+        console.log(response.data)
+        // Step 2: Log the contact URL
+        const contactUrl = response.data.contact_url;
+        console.log('Contact URL:', contactUrl);
+
+      // Step 3: Use the contact URL to make the PUT request
+      const updateUrl = 'http://127.0.0.1:5000/api/connections/frequency';
+      const updateResponse = await fetch(updateUrl, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `${localStorage.getItem('token')}`, // Include token if necessary
+          },
+          body: JSON.stringify({
+              contact_url: contactUrl,
+              frequency: newFrequency,
+          }),
+      });
+
+      if (updateResponse.ok) {
+          console.log('Successfully updated contact frequency');
+      } else {
+          console.error('Failed to update contact frequency', await updateResponse.json());
+      }
+    } catch (error) {
+        console.error('Failed to update contact frequency', error);
+    }
+};
+
+
+  
+  
+
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
 
@@ -82,6 +128,11 @@ const KeepInTouch: React.FC<KeepInTouchProps> = ({ contacts }) => {
       [source.droppableId]: sourceList,
       [destination.droppableId]: destinationList,
     });
+
+    // Update the contact frequency in the backend
+    const newFrequency = destination.droppableId.replace(/([a-z])([A-Z])/g, '$1 $2');
+    console.log('New frequency:', newFrequency);
+    updateContactFrequency(movedItem, newFrequency);
   };
 
   return (

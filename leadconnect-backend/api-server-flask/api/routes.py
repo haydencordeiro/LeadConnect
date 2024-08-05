@@ -424,7 +424,7 @@ class Login(Resource):
 class LLM(Resource):
     def post(self):
         """
-        Generate a customized message using OpenAI's GPT-3.5 based on user input.
+        Generate a customized message using OpenAI's GPT-4o-mini based on user input.
 
         Request Data:
             - users: List of users.
@@ -449,9 +449,9 @@ class LLM(Resource):
                 ]
 
                 response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4o-mini",
                     messages=messages,
-                    max_tokens=150
+                    max_tokens=1500
                 )
                 summary_message = response['choices'][0]['message']['content'].strip()
                 return {'customized_message': summary_message}
@@ -525,9 +525,9 @@ class LLM(Resource):
 
             try:
                 response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4o-mini",
                     messages=messages,
-                    max_tokens=150
+                    max_tokens=1500
                 )
                 summary_message = response['choices'][0]['message']['content'].strip()
                 return jsonify({'customized_message': summary_message})
@@ -548,9 +548,9 @@ class LLM(Resource):
                 ]
 
                 response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4o-mini",
                     messages=messages,
-                    max_tokens=150
+                    max_tokens=1500
                 )
                 customized_message = response['choices'][0]['message']['content'].strip()
 
