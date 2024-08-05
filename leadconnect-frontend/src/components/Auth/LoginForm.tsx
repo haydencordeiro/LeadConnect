@@ -21,9 +21,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleInputChange, handleSubmit, 
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col">
-      <button type="button" className="flex items-center justify-center mb-4 p-2 border rounded bg-gray-800 text-white rounded-lg shadow-lg">
+      {/* <button type="button" className="flex items-center justify-center mb-4 p-2 border rounded bg-gray-800 text-white rounded-lg shadow-lg">
         <FaGithub className="mr-2" /> Login with GitHub
-      </button>
+      </button> */}
       <input
         type="text"
         value={formData.username}

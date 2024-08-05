@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import SignupForm from '../components/Auth/SignupForm';
 import StepIndicator from '../components/StepIndicator';
 import logo from '../assets/logo.jpg';
+import { MdSubscriptions } from 'react-icons/md';
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ const Signup: React.FC = () => {
     profile_picture_url: '',
     security_question: '',
     security_answer: '',
-    my_resume_content: '' // New field
+    my_resume_content: '', // New field
+    subscription: 'Free Tier'
   });
 
   const nextStep = () => {

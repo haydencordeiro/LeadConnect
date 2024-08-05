@@ -180,20 +180,20 @@ const ChatComponent: React.FC<ChatComponentProps> = ({ contact }) => { // Defini
     };
 
     return (
-        <div className={`app-container ${chatVisible ? 'blur-background' : ''}`}> // Container div with conditional class
-            <div className={`chat-box ${chatVisible ? 'visible' : ''}`} ref={chatBoxRef}> // Chat box div with conditional class
+        <div className={`app-container ${chatVisible ? 'blur-background' : ''}`}> 
+            <div className={`chat-box ${chatVisible ? 'visible' : ''}`} ref={chatBoxRef}> 
                 <div className="chat-box-header">
-                    <img src={contact.profile_pic_url} alt="profile" className="rounded-full avatar-chat" /> // Profile picture
-                    <span style={{ fontWeight: "bold", lineHeight: "2" }}> {chatVisible ? contact.name : ''}</span> // Contact name
+                    <img src={contact.profile_pic_url} alt="profile" className="rounded-full avatar-chat" /> 
+                    <span style={{ fontWeight: "bold", lineHeight: "2" }}> {chatVisible ? contact.name : ''}</span> 
                     <p id="addExtra" onClick={toggleChatVisibility}>
-                        <span className="text-buttonBlue hover:text-blue-700"><FaTimes size={24} /></span> // Close icon
+                        <span className="text-buttonBlue hover:text-blue-700"><FaTimes size={24} /></span> 
                     </p>
                 </div>
-                <div className="chat-box-body" ref={chatBodyRef}> // Chat body div
+                <div className="chat-box-body" ref={chatBodyRef}> 
                     {chatHistory.map((msg, index) => ( // Mapping over chat history to display messages
                         msg.text && (
-                            <div key={index} className={`chat-box-body-${msg.sender === 'bot' ? 'receive' : 'send'}`}> // Message div with conditional class
-                                <div dangerouslySetInnerHTML={{__html: msg.text}}/> // Message text
+                            <div key={index} className={`chat-box-body-${msg.sender === 'bot' ? 'receive' : 'send'}`}> 
+                                <div dangerouslySetInnerHTML={{__html: msg.text}}/> 
 
                                 <div style={{display: "flex", flexDirection: "row"}}>
                                     <span style={{
@@ -205,8 +205,8 @@ const ChatComponent: React.FC<ChatComponentProps> = ({ contact }) => { // Defini
                                         flex: "1"
                                     }}>{msg.sender === 'bot' ? <FaRobot className="chat-icon-receive"/> :
                                         <FaUser
-                                            className="chat-icon-send"/>} {msg.sender === 'bot' ? 'Bot' : 'You'}</span> // Sender icon and name
-                                    <span>{msg.time}</span> // Message time
+                                            className="chat-icon-send"/>} {msg.sender === 'bot' ? 'Bot' : 'You'}</span> 
+                                    <span>{msg.time}</span> 
 
                                 </div>
                             </div>
@@ -220,7 +220,7 @@ const ChatComponent: React.FC<ChatComponentProps> = ({ contact }) => { // Defini
                 )}
                 <div className="chat-box-footer">
                     <button id="addExtra" onClick={toggleModalVisibility}>
-                        <span className="text-buttonBlue hover:text-blue-700"><FaPlus size={24} /></span> // Add icon
+                        <span className="text-buttonBlue hover:text-blue-700"><FaPlus size={24} /></span> 
                     </button>
                     <input
                         ref={inputRef}
@@ -230,7 +230,7 @@ const ChatComponent: React.FC<ChatComponentProps> = ({ contact }) => { // Defini
                         onChange={(e) => setMessage(e.target.value)} // Updating message state on input change
                     />
                     <button id="addExtra" onClick={handleSendMessage}>
-                        <span className="text-buttonBlue hover:text-blue-700"><FaPaperPlane size={24} /></span> // Send icon
+                        <span className="text-buttonBlue hover:text-blue-700"><FaPaperPlane size={24} /></span> 
                     </button>
                 </div>
             </div>
