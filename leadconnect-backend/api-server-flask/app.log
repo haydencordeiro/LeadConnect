@@ -1,0 +1,138 @@
+2024-08-04 00:18:52,453 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\__init__.py', reloading
+2024-08-04 00:21:15,454 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:43:23,832 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:45:08,715 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:45:22,077 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:46:09,316 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:46:22,710 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:50:14,843 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:55:04,145 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 00:55:21,817 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 01:03:04,451 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 01:05:06,187 - werkzeug - INFO -  * Detected change in 'D:\\MAC\\Sem 3\\Internship Project 1\\LinkedinBaseExtensionSetup\\leadconnect-backend\\api-server-flask\\api\\models.py', reloading
+2024-08-04 13:51:00,910 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:00] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-04 13:51:00,912 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:00] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-04 13:51:00,912 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:00] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-04 13:51:00,914 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:00] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-04 13:51:01,595 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 13:51:01,748 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 13:51:01,892 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 13:51:01,894 - api.models - DEBUG - check_password called with password: stormfury
+2024-08-04 13:51:03,364 - api.models - DEBUG - check_password result: True
+2024-08-04 13:51:03,369 - api.models - DEBUG - set_status called with set_status: True
+2024-08-04 13:51:03,370 - api.models - DEBUG - set_status completed
+2024-08-04 13:51:03,371 - api.models - DEBUG - save method called
+2024-08-04 13:51:03,526 - api.models - DEBUG - save method completed
+2024-08-04 13:51:03,809 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:03] "POST /api/users/login HTTP/1.1" 200 -
+2024-08-04 13:51:05,672 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:05] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 13:51:06,153 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 13:51:06,253 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 13:51:07,204 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:07] "GET /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 13:51:07,493 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 13:51:07,495 - api.models - DEBUG - check_password called with password: stormfury
+2024-08-04 13:51:08,937 - api.models - DEBUG - check_password result: True
+2024-08-04 13:51:08,939 - api.models - DEBUG - set_status called with set_status: True
+2024-08-04 13:51:08,941 - api.models - DEBUG - set_status completed
+2024-08-04 13:51:08,942 - api.models - DEBUG - save method called
+2024-08-04 13:51:09,130 - api.models - DEBUG - save method completed
+2024-08-04 13:51:09,472 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:09] "POST /api/users/login HTTP/1.1" 200 -
+2024-08-04 13:51:09,540 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 13:51:09,634 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 13:51:10,467 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 13:51:10] "GET /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:34:12,470 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:12] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:34:12,524 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:12] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:34:12,623 - root - DEBUG - Response data before parsing: {
+    "success": false,
+    "msg": "Token expired. Please log in again."
+}
+
+2024-08-04 20:34:12,625 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:12] "[31m[1mGET /api/users/contacts HTTP/1.1[0m" 401 -
+2024-08-04 20:34:12,671 - root - DEBUG - Response data before parsing: {
+    "success": false,
+    "msg": "Token expired. Please log in again."
+}
+
+2024-08-04 20:34:12,673 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:12] "[31m[1mGET /api/users/contacts HTTP/1.1[0m" 401 -
+2024-08-04 20:34:34,617 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:34] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-04 20:34:34,663 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:34:47,274 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:47] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-04 20:34:47,281 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:34:55,513 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:34:55,556 - api.models - DEBUG - check_password called with password: stormfury
+2024-08-04 20:34:56,690 - api.models - DEBUG - check_password result: True
+2024-08-04 20:34:56,691 - api.models - DEBUG - set_status called with set_status: True
+2024-08-04 20:34:56,693 - api.models - DEBUG - set_status completed
+2024-08-04 20:34:56,693 - api.models - DEBUG - save method called
+2024-08-04 20:34:56,835 - api.models - DEBUG - save method completed
+2024-08-04 20:34:57,047 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:57] "POST /api/users/login HTTP/1.1" 200 -
+2024-08-04 20:34:57,204 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:57] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:34:57,359 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:34:57,432 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:34:58,312 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:34:58] "GET /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:35:07,847 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:35:07,848 - api.models - DEBUG - check_password called with password: stormfury
+2024-08-04 20:35:09,472 - api.models - DEBUG - check_password result: True
+2024-08-04 20:35:09,495 - api.models - DEBUG - set_status called with set_status: True
+2024-08-04 20:35:09,496 - api.models - DEBUG - set_status completed
+2024-08-04 20:35:09,497 - api.models - DEBUG - save method called
+2024-08-04 20:35:09,639 - api.models - DEBUG - save method completed
+2024-08-04 20:35:09,841 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:09] "POST /api/users/login HTTP/1.1" 200 -
+2024-08-04 20:35:23,549 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:23] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:35:23,563 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:23] "OPTIONS /api/users/profile HTTP/1.1" 200 -
+2024-08-04 20:35:23,708 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:23] "OPTIONS /api/users/profile HTTP/1.1" 200 -
+2024-08-04 20:35:23,732 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:35:23,749 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:35:23,811 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:35:23,946 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:35:24,172 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:24] "GET /api/users/profile HTTP/1.1" 200 -
+2024-08-04 20:35:24,184 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:35:24,257 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:35:24,560 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:24] "GET /api/users/profile HTTP/1.1" 200 -
+2024-08-04 20:35:24,737 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:24] "GET /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:35:26,693 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:35:26,772 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:35:27,099 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:27] "GET /api/users/profile HTTP/1.1" 200 -
+2024-08-04 20:35:27,174 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:35:27,242 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:35:27,502 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:35:27] "GET /api/users/profile HTTP/1.1" 200 -
+2024-08-04 20:42:16,587 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:42:16] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:42:16,589 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:42:16] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:42:16,598 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:42:16,677 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:42:17,441 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:42:17] "GET /api/users/contacts HTTP/1.1" 200 -
+2024-08-04 20:42:17,448 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-04 20:42:17,526 - api.models - DEBUG - get_by_username result: User stormfury
+2024-08-04 20:42:18,310 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2024 20:42:18] "GET /api/users/contacts HTTP/1.1" 200 -
+2024-08-05 10:57:11,471 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:11] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-05 10:57:11,473 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:11] "OPTIONS /api/users/contacts HTTP/1.1" 200 -
+2024-08-05 10:57:11,514 - root - DEBUG - Response data before parsing: {
+    "success": false,
+    "msg": "Token expired. Please log in again."
+}
+
+2024-08-05 10:57:11,515 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:11] "[31m[1mGET /api/users/contacts HTTP/1.1[0m" 401 -
+2024-08-05 10:57:11,520 - root - DEBUG - Response data before parsing: {
+    "success": false,
+    "msg": "Token expired. Please log in again."
+}
+
+2024-08-05 10:57:11,521 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:11] "[31m[1mGET /api/users/contacts HTTP/1.1[0m" 401 -
+2024-08-05 10:57:27,694 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:27] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-05 10:57:27,710 - api.models - DEBUG - get_by_username called with username: stormfury
+2024-08-05 10:57:30,284 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:30] "[35m[1mPOST /api/users/login HTTP/1.1[0m" 500 -
+2024-08-05 10:57:48,575 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:48] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-05 10:57:48,587 - api.models - DEBUG - get_by_username called with username: furystorm
+2024-08-05 10:57:51,115 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:51] "[35m[1mPOST /api/users/login HTTP/1.1[0m" 500 -
+2024-08-05 10:57:58,881 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:57:58] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-05 10:57:58,887 - api.models - DEBUG - get_by_username called with username: furystorm
+2024-08-05 10:58:01,306 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:58:01] "[35m[1mPOST /api/users/login HTTP/1.1[0m" 500 -
+2024-08-05 10:58:11,308 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:58:11] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-05 10:58:11,314 - api.models - DEBUG - get_by_username called with username: furystorm
+2024-08-05 10:58:13,766 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:58:13] "[35m[1mPOST /api/users/login HTTP/1.1[0m" 500 -
+2024-08-05 10:58:40,261 - werkzeug - INFO -  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2024-08-05 10:58:40,265 - werkzeug - INFO -  * Restarting with stat
+2024-08-05 10:58:49,133 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:58:49] "OPTIONS /api/users/login HTTP/1.1" 200 -
+2024-08-05 10:58:49,152 - api.models - DEBUG - get_by_username called with username: furystorm
+2024-08-05 10:58:49,179 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2024 10:58:49] "[35m[1mPOST /api/users/login HTTP/1.1[0m" 500 -
+2024-08-05 11:21:31,934 - werkzeug - INFO -  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2024-08-05 11:21:31,936 - werkzeug - INFO -  * Restarting with stat

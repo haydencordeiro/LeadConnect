@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from datetime import datetime,timezone
 import json
-
+import logging
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-
+logger = logging.getLogger(__name__)
 db = SQLAlchemy()
 
 """
@@ -65,41 +65,68 @@ class Users(db.Model):
         return f"User {self.username}"  # Return the username of the user   
 
     def save(self):
+        logger.debug('save method called')
         db.session.add(self)
         db.session.commit()
+        logger.debug('save method completed')
 
     def set_password(self, password):
+        logger.debug('set_password called with password: %s', password)
         self.password_hash = generate_password_hash(password)
+        logger.debug('set_password completed')
 
     def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        logger.debug('check_password called with password: %s', password)
+        result = check_password_hash(self.password_hash, password)
+        logger.debug('check_password result: %s', result)
+        return result
 
     def update_email(self, new_email):
+        logger.debug('update_email called with new_email: %s', new_email)
         self.email = new_email
+        logger.debug('update_email completed')
 
     def update_first_name(self, new_first_name):
+        logger.debug('update_first_name called with new_first_name: %s', new_first_name)
         self.first_name = new_first_name
+        logger.debug('update_first_name completed')
 
     def update_last_name(self, new_last_name):
+        logger.debug('update_last_name called with new_last_name: %s', new_last_name)
         self.last_name = new_last_name
+        logger.debug('update_last_name completed')
 
     def check_status(self):
-        return self.status
+        logger.debug('check_status called')
+        result = self.status
+        logger.debug('check_status result: %s', result)
+        return result
 
     def set_status(self, set_status):
+        logger.debug('set_status called with set_status: %s', set_status)
         self.status = set_status
+        logger.debug('set_status completed')
 
     @classmethod
     def get_by_id(cls, id):
-        return db.session.query(cls).get_or_404(id)
+        logger.debug('get_by_id called with id: %s', id)
+        result = db.session.query(cls).get_or_404(id)
+        logger.debug('get_by_id result: %s', result)
+        return result
 
     @classmethod
     def get_by_email(cls, email):
-        return db.session.query(cls).filter_by(email=email).first()
-
+        logger.debug('get_by_email called with email: %s', email)
+        result = db.session.query(cls).filter_by(email=email).first()
+        logger.debug('get_by_email result: %s', result)
+        return result
+    
     @classmethod
     def get_by_username(cls, username):
-        return db.session.query(cls).filter_by(username=username).first()
+        logger.debug('get_by_username called with username: %s', username)
+        result = db.session.query(cls).filter_by(username=username).first()
+        logger.debug('get_by_username result: %s', result)
+        return result
 
     def toDICT(self):
         cls_dict = {}
@@ -141,11 +168,16 @@ class JWTTokenBlocklist(Base):
 
 
     def __repr__(self):
-        return f"Expired Token: {self.jwt_token}"
+        logger.debug('__repr__ called')
+        result = f"Expired Token: {self.jwt_token}"
+        logger.debug('__repr__ result: %s', result)
+        return result
 
     def save(self):
+        logger.debug('save method called')
         db.session.add(self)
         db.session.commit()
+        logger.debug('save method completed')
 
 """
 Contact model representing a contact person in the system.
@@ -168,43 +200,66 @@ class Contact(db.Model):
     profile_pic_url = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
-        return f"Contact {self.contact_url}"
+        logger.debug('__repr__ called')
+        result = f"Contact {self.contact_url}"
+        logger.debug('__repr__ result: %s', result)
+        return result
 
     def save(self):
+        logger.debug('save method called')
         db.session.add(self)
         db.session.commit()
+        logger.debug('save method completed')
 
     def update_name(self, new_name):
+        logger.debug('update_name called with new_name: %s', new_name)
         self.name = new_name
         self.save()
+        logger.debug('update_name completed')
 
     def update_current_location(self, new_location):
+        logger.debug('update_current_location called with new_location: %s', new_location)
         self.current_location = new_location
         self.save()
+        logger.debug('update_current_location completed')
 
     def update_headline(self, new_headline):
+        logger.debug('update_headline called with new_headline: %s', new_headline)
         self.headline = new_headline
         self.save()
+        logger.debug('update_headline completed')
 
     def update_about(self, new_about):
+        logger.debug('update_about called with new_about: %s', new_about)
         self.about = new_about
         self.save()
+        logger.debug('update_about completed')
 
     def update_profile_pic_url(self, new_profile_pic_url):
+        logger.debug('update_profile_pic_url called with new_profile_pic_url: %s', new_profile_pic_url)
         self.profile_pic_url = new_profile_pic_url
         self.save()
+        logger.debug('update_profile_pic_url completed')
 
     @classmethod
     def get_by_contact_url(cls, contact_url):
-        return db.session.query(cls).get(contact_url)
+        logger.debug('get_by_contact_url called with contact_url: %s', contact_url)
+        result = db.session.query(cls).get(contact_url)
+        logger.debug('get_by_contact_url result: %s', result)
+        return result
 
     @classmethod
     def get_all(cls):
-        return cls.query.all()
+        logger.debug('get_all called')
+        result = cls.query.all()
+        logger.debug('get_all result: %s', result)
+        return result
 
     def delete(self):
+        logger.debug('delete method called')
         db.session.delete(self)
         db.session.commit()
+        logger.debug('delete method completed')
 
     def toDICT(self):
         cls_dict = {}
@@ -217,7 +272,10 @@ class Contact(db.Model):
         return cls_dict
 
     def toJSON(self):
-        return self.toDICT()
+        logger.debug('toJSON called')
+        result = self.toDICT()
+        logger.debug('toJSON result: %s', result)
+        return result
     
 """
 Experience model representing a professional experience of a contact.
@@ -248,51 +306,79 @@ class Experience(db.Model):
     # contact = db.relationship('Contact', backref=db.backref('contacts', lazy=True))
 
     def __repr__(self):
-        return f"Experience {self.company_name} #at {self.contact_url}"
+        logger.debug('__repr__ called')
+        result = f"Experience {self.company_name} #at {self.contact_url}"
+        logger.debug('__repr__ result: %s', result)
+        return result
 
     def save(self):
+        logger.debug('save method called')
         db.session.add(self)
         db.session.commit()
+        logger.debug('save method completed')
 
     @classmethod
     def get_by_id(cls, id):
-        return db.session.query(cls).get_or_404(id)
+        logger.debug('get_by_id called with id: %s', id)
+        result = db.session.query(cls).get_or_404(id)
+        logger.debug('get_by_id result: %s', result)
+        return result
 
     @classmethod
     def get_all(cls):
-        return cls.query.all()
+        logger.debug('get_all called')
+        result = cls.query.all()
+        logger.debug('get_all result: %s', result)
+        return result
 
     def update_company_name(self, new_company_name):
+        logger.debug('update_company_name called with new_company_name: %s', new_company_name)
         self.company_name = new_company_name
         self.save()
+        logger.debug('update_company_name completed')
 
     def update_company_role(self, new_company_role):
+        logger.debug('update_company_role called with new_company_role: %s', new_company_role)
         self.company_role = new_company_role
         self.save()
+        logger.debug('update_company_role completed')
 
     def update_company_location(self, new_company_location):
+        logger.debug('update_company_location called with new_company_location: %s', new_company_location)
         self.company_location = new_company_location
         self.save()
+        logger.debug('update_company_location completed')
 
     def update_bulletpoints(self, new_bulletpoints):
+        logger.debug('update_bulletpoints called with new_bulletpoints: %s', new_bulletpoints)
         self.bulletpoints = new_bulletpoints
         self.save()
+        logger.debug('update_bulletpoints completed')
 
     def update_company_duration(self, new_company_duration):
+        logger.debug('update_company_duration called with new_company_duration: %s', new_company_duration)
         self.company_duration = new_company_duration
         self.save()
+        logger.debug('update_company_duration completed')
 
     def update_company_total_duration(self, new_company_total_duration):
+        logger.debug('update_company_total_duration called with new_company_total_duration: %s', new_company_total_duration)
         self.company_total_duration = new_company_total_duration
         self.save()
+        logger.debug('update_company_total_duration completed')
 
     def delete(self):
+        logger.debug('delete method called')
         db.session.delete(self)
         db.session.commit()
+        logger.debug('delete method completed')
 
     @classmethod
     def get_by_contact_url(cls, url):
-        return db.session.query(cls).filter_by(contact_url=url)
+        logger.debug('get_by_contact_url called with url: %s', url)
+        result = db.session.query(cls).filter_by(contact_url=url)
+        logger.debug('get_by_contact_url result: %s', result)
+        return result
     
     def delete(self):
         db.session.delete(self)
@@ -309,10 +395,14 @@ class Experience(db.Model):
         cls_dict['bulletpoints'] = self.bulletpoints
         cls_dict['company_duration'] = self.company_duration
         cls_dict['company_total_duration'] = self.company_total_duration
+        logger.debug('toDICT result: %s', cls_dict)
         return cls_dict
 
     def toJSON(self):
-        return self.toDICT()
+        logger.debug('toJSON called')
+        result = self.toDICT()
+        logger.debug('toJSON result: %s', result)
+        return result
 
 """
 Connection model representing a connection between a user and a contact.
@@ -336,15 +426,23 @@ class Connection(db.Model):
     notes = db.Column(db.Text, nullable=True)  # New field
 
     def __repr__(self):
-        return f"Connection(User ID: {self.user_id}, Contact URL: {self.contact_url})"
+        logger.debug('__repr__ called')
+        result = f"Connection(User ID: {self.user_id}, Contact URL: {self.contact_url})"
+        logger.debug('__repr__ result: %s', result)
+        return result
    
     @classmethod
     def get_by_connection(cls, user_id, url):
-        return db.session.query(cls).filter_by(contact_url=url, user_id=user_id).first()
+        logger.debug('get_by_connection called with user_id: %s, url: %s', user_id, url)
+        result = db.session.query(cls).filter_by(contact_url=url, user_id=user_id).first()
+        logger.debug('get_by_connection result: %s', result)
+        return result
     
     def save(self):
+        logger.debug('save method called')
         db.session.add(self)
         db.session.commit()
+        logger.debug('save method completed')
     
     def toDICT(self):
         cls_dict = {}
@@ -354,11 +452,17 @@ class Connection(db.Model):
         cls_dict['frequency'] = self.frequency
         cls_dict['last_interacted'] = self.last_interacted
         cls_dict['notes'] = self.notes  # Add notes to dict
+        logger.debug('toDICT result: %s', cls_dict)
         return cls_dict
 
     def toJSON(self):
-        return self.toDICT()
+        logger.debug('toJSON called')
+        result = self.toDICT()
+        logger.debug('toJSON result: %s', result)
+        return result
 
     def delete(self):
+        logger.debug('delete method called')
         db.session.delete(self)
         db.session.commit()
+        logger.debug('delete method completed')

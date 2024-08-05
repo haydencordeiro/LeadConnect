@@ -11,7 +11,17 @@ from .routes import rest_api
 from .models import db
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(
+    level=logging.DEBUG,  # Set the logging level
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Log message format
+    handlers=[
+        logging.FileHandler('app.log'),  # Log to a file
+        logging.StreamHandler()  # Also log to console
+    ]
+)
+
+
+logger = logging.getLogger(__name__)
 
 
 app = Flask(__name__)
