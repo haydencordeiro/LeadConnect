@@ -157,9 +157,6 @@ def send_simple_message(to, subject, body, contacts):
         contact_html += f"""
         <tr>
             <td style="padding: 10px;">
-                <img src="https://media.licdn.com/dms/image/D5603AQHCl6rE29FjDQ/profile-displayphoto-shrink_400_400/0/1700181003703?e=1722470400&v=beta&t=JXh72hidUVebdLR2JrDBMXbG9HC1FT9LCuBHuPUS0i4" alt="Logo" title="Logo" style="display:block" width="200" height="87" />
-            </td>
-            <td style="padding: 10px;">
                 <p style="margin: 0; font-family: Arial, sans-serif; color: #333333;">{contact['name']}</p>
             </td>
         </tr>

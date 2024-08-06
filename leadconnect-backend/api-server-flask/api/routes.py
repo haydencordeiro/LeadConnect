@@ -1016,9 +1016,9 @@ def get_next_interaction_date(interaction):
         return last_interacted + timedelta(days=30)
     elif frequency == 'Bimonthly':
         return last_interacted + timedelta(days=60)
-    elif frequency == 'Once in 3 months':
+    elif frequency == 'Once_in_3_months':
         return last_interacted + timedelta(days=90)
-    elif frequency == 'Once in 6 months':
+    elif frequency == 'Once_in_6_months':
         return last_interacted + timedelta(days=180)
 
 """"

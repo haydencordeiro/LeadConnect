@@ -193,7 +193,7 @@ const ChatComponent: React.FC<ChatComponentProps> = ({ contact }) => { // Defini
                     {chatHistory.map((msg, index) => ( // Mapping over chat history to display messages
                         msg.text && (
                             <div key={index} className={`chat-box-body-${msg.sender === 'bot' ? 'receive' : 'send'}`}> 
-                                <div dangerouslySetInnerHTML={{__html: msg.text}}/> 
+                                <div dangerouslySetInnerHTML={{__html: msg.text.replace(/```html|```/g, '')}}/> 
 
                                 <div style={{display: "flex", flexDirection: "row"}}>
                                     <span style={{
@@ -236,16 +236,16 @@ const ChatComponent: React.FC<ChatComponentProps> = ({ contact }) => { // Defini
             </div>
 
             <div className="chat-button" onClick={toggleChatVisibility}
-                style={{ display: chatVisible ? 'none' : 'flex' }}> // Chat button with conditional style
-                <img src={contact.profile_pic_url} alt="profile" className="rounded-full avatar-chat" /> // Profile picture
-                {contact.name} // Contact name
+                style={{ display: chatVisible ? 'none' : 'flex' }}> 
+                <img src={contact.profile_pic_url} alt="profile" className="rounded-full avatar-chat" /> 
+                {contact.name} 
             </div>
 
             {modalVisible && ( // Conditional rendering of modal
                 <div className="modal show-modal">
                     <div className="modal-content">
-                        <span className="modal-close-button" onClick={toggleModalVisibility}>&times;</span> // Close button
-                        <h1>Add What you want here.</h1> // Modal content
+                        <span className="modal-close-button" onClick={toggleModalVisibility}>&times;</span> 
+                        <h1>Add What you want here.</h1> 
                     </div>
                 </div>
             )}
