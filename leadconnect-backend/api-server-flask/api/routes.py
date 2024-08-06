@@ -222,6 +222,7 @@ class Register(Resource):
         security_answer = req_data.get("security_answer")
         user_exists = Users.get_by_email(email)
         my_resume_content = req_data.get("my_resume_content")  # New field
+        subscription = req_data.get("subscription")
         if user_exists:
             return {"success": False, "msg": "User already exists"}, 400
 
@@ -240,7 +241,8 @@ class Register(Resource):
             status=1,  # Assuming 1 means 'active'
             created_at=datetime.now(timezone.utc),
             updated_at=datetime.now(timezone.utc),
-            my_resume_content=my_resume_content,  # Assigning new field
+            my_resume_content=my_resume_content,
+            subscription=subscription  # Assigning new field
         )
         new_user.set_password(password)
         db.session.add(new_user)
@@ -645,6 +647,41 @@ class get_user_contacts(Resource):
             contacts.append(contact_data)
         return jsonify({'contacts': contacts})
 
+
+
+@rest_api.route('/api/connections/frequency')
+class UpdateFrequencyAPI(Resource):
+    @token_required
+    def put(self,current_user):
+        """
+        Update the frequency of the connection with the given contact URL.
+
+        Args:
+            contact_url (str): The contact URL (JSON body parameter).
+            frequency (str): The new frequency (JSON body parameter).
+
+        Returns:
+            JSON response with success or error message.
+        """
+        user_id = current_user.user_id
+        data = request.get_json()
+        #print(user_id)
+        user_id = data.get('user_id')
+        contact_url = data.get('contact_url')
+        new_frequency = data.get('frequency')
+
+        if not contact_url or not new_frequency:
+            return jsonify({"error": "Missing contact_url or frequency"}), 400
+
+        connection =  Connection.query.filter_by(contact_url=contact_url).first()
+        if connection:
+            connection.frequency = new_frequency
+            db.session.commit()
+            return jsonify({"message": "Frequency updated successfully"})
+        else:
+            return jsonify({"error": "Connection not found"}), 404
+
+
 @rest_api.route('/api/sef/pdf_upload')
 class upload_file(Resource):
     def post(self, **kwargs):
@@ -704,6 +741,28 @@ class upload_file(Resource):
             print(f"An error occurred: {str(e)}")
             return {"success": False, "message": "An error occurred"}, 500
 
+@rest_api.route('/api/contacts/contact_url/<string:name>')
+class ContactURLAPI(Resource):
+    def get(self, name):
+        """
+        Get the contact URL of the contact with the given name.
+
+        Args:
+            name (str): The name of the contact.
+
+        Returns:
+            JSON response with the contact's URL or an error message if not found.
+        """
+        print(f"Received request to get contact URL for {name}")
+        contact = Contact.query.filter_by(name=name).first()
+        if contact:
+            return jsonify({
+                "name": contact.name,
+                "contact_url": contact.contact_url
+            })
+        else:
+            return jsonify({"error": "Contact not found"}), 404
+        
 
 @rest_api.route('/api/users/profile')
 class UserProfileAPI(Resource):
