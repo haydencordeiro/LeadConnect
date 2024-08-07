@@ -413,7 +413,7 @@ class Login(Resource):
                     "msg": "Wrong credentials."}, 400
 
         # create access token uwing JWT
-        token = jwt.encode({'user_id': user_id, 'username': username, 'exp': datetime.utcnow() + timedelta(minutes=30)},
+        token = jwt.encode({'user_id': user_id, 'username': username, 'exp': datetime.utcnow() + timedelta(minutes=300)},
                            BaseConfig.SECRET_KEY)
         user_exists.set_status(True)
         user_exists.save()
@@ -894,7 +894,7 @@ class GitHubLogin(Resource):
 
         user_json = user.toJSON()
 
-        token = jwt.encode({"username": user_json['username'], 'exp': datetime.utcnow() + timedelta(minutes=30)},
+        token = jwt.encode({"username": user_json['username'], 'exp': datetime.utcnow() + timedelta(minutes=300)},
                            BaseConfig.SECRET_KEY)
         user.set_status(True)
         user.save()
@@ -1069,7 +1069,6 @@ class GetReminders(Resource):
                         })
             if reminders:
                 all_reminders[user.email] = reminders
-        
         for email, reminders in all_reminders.items():
             contact_list = "\n".join([f"{contact['name']} ({contact['profile_pic_url']})" for contact in reminders])
             email_subject = "Your Contacts to Reach Out Today"
