@@ -39,6 +39,9 @@ LLM
 8. **No Vendor Lock-In**
    - LeadConnect allows you to export your data at any time, ensuring you are never locked into a single vendor.
 
+## DEMO
+[![Watch the video](https://img.youtube.com/vi/ZiyUfM9W_Qw/maxresdefault.jpg)](https://www.youtube.com/watch?v=ZiyUfM9W_Qw)
+
 ## Who Needs LeadConnect?
 
 - **Small Businesses:** Seeking sustainable growth and effective network management.
